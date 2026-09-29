@@ -87,7 +87,7 @@ The accept loop owns newly accepted descriptors until a task is successfully sub
 - `HELP` lists commands.
 - `QUIT` returns `BYE` and closes the connection.
 
-Because the protocol preserves values containing spaces, a final numeric token is interpreted as the optional TTL. For example, `SET session Rupdip 10` expires after ten seconds, while `SET message hello world` stores `hello world`. TTL `0` expires immediately; negative, overflowing, and values above ten years are rejected. A non-numeric final token remains part of a space-containing value because the line protocol cannot otherwise distinguish it from ordinary value text. Expiration is lazy: `GET` and `DEL` remove expired entries when they encounter them.
+Because the protocol preserves values containing spaces, a final numeric token is interpreted as the optional TTL. For example, `SET session Pritish 10` expires after ten seconds, while `SET message hello world` stores `hello world`. TTL `0` expires immediately; negative, overflowing, and values above ten years are rejected. A non-numeric final token remains part of a space-containing value because the line protocol cannot otherwise distinguish it from ordinary value text. Expiration is lazy: `GET` and `DEL` remove expired entries when they encounter them.
 
 ## Request Lifecycle
 
@@ -101,16 +101,16 @@ client -> TCP connection -> accept loop -> worker task -> ClientSession
 Example:
 
 ```text
-> SET name Rupdip
+> SET name Pritish
 OK
 > SET age 22
 OK
 > GET name
-Rupdip
-> SET session Rupdip 10
+Pritish
+> SET session Pritish 10
 OK
 > GET session
-Rupdip
+Pritish
 > DEL name
 (integer) 1
 ```
